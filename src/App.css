@@ -117,11 +117,18 @@ button {
 }
 
 .profile {
-  width: 220px;
-  height: 300px;
-  border-radius: 100px;
-  background: #022f25;
+  width: 260px;
+  height: 340px;
+  border-radius: 140px;
+  overflow: hidden;
   margin: auto;
+  background: #022f25;
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .section {

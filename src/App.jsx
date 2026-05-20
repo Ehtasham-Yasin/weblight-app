@@ -39,13 +39,28 @@ export default function App() {
         <div>
           <h3>ABOUT ME</h3>
           <p>
-            Hi, I am a designer and developer. I create clean websites,
-            modern UI designs, landing pages, and digital experiences that help
-            brands grow online.
+            I am a passionate Development Engineer, UI/UX Designer, and Front-End Developer
+            focused on creating modern digital experiences that combine clean design with
+            powerful functionality. I specialize in building responsive websites, landing
+            pages, and user-friendly interfaces that help businesses grow online and
+            establish a strong digital presence.
+
+            With expertise in front-end technologies, responsive design systems, and
+            modern UI/UX principles, I create solutions that are visually engaging,
+            performance optimized, and tailored to client goals. My approach combines
+            creativity, problem-solving, and technical precision to deliver experiences
+            that are both functional and aesthetically impactful.
           </p>
-          <button>View CV</button>
+          <a
+            href="https://www.dropbox.com/scl/fi/db5f81sb6yv250rvgboo6/ehtasham_yasin_cv.pdf?rlkey=zbrjfjmhax9tprpojyc65pbf7&st=k5u4v2mg&dl=0"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button>View CV</button>
+          </a>        </div>
+        <div className="profile">
+          <img src="/profile.jpg" alt="Ehtasham Yasin" />
         </div>
-        <div className="profile"></div>
       </section>
 
       <section className="section">
