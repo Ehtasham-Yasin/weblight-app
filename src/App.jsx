@@ -1,8 +1,27 @@
 import "./App.css";
+const cursorRef = React.useRef(null);
+
+React.useEffect(() => {
+  const moveCursor = (e) => {
+    if (cursorRef.current) {
+      cursorRef.current.style.left = e.clientX + "px";
+      cursorRef.current.style.top = e.clientY + "px";
+    }
+  };
+
+  window.addEventListener("mousemove", moveCursor);
+
+  return () => {
+    window.removeEventListener("mousemove", moveCursor);
+  };
+}, []);
 
 export default function App() {
   return (
     <main className="page">
+      <div className="custom-cursor" ref={cursorRef}>
+        ✦
+      </div>
       <nav className="navbar">
         <div className="logo">WEBLIGHT</div>
         <div className="navLinks">

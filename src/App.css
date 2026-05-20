@@ -309,3 +309,20 @@ footer {
     height: 230px;
   }
 }
+
+.custom-cursor {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #022f25;
+  color: #d9ff81;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: all 0.08s linear;
+}
