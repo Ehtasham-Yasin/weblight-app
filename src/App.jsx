@@ -167,6 +167,7 @@ export default function App() {
               </div>
             </div>
           ))}
+        </div>
       </section>
 
       <section className="services" id="services">
