@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 
 export default function App() {
+  const [menuOpen, setMenuOpen] = React.useState(false);
   const cursorRef = React.useRef(null);
 
   React.useEffect(() => {
@@ -11,7 +12,6 @@ export default function App() {
         cursorRef.current.style.top = e.clientY + "px";
       }
     };
-
     window.addEventListener("mousemove", moveCursor);
 
     return () => {
@@ -24,22 +24,42 @@ export default function App() {
       <div className="custom-cursor" ref={cursorRef}>
         ✦
       </div>
-
       <nav className="navbar">
-        <div className="logo">WEBLIGHT</div>
+        <img src="/logo.png" alt="Weblight Logo" className="brandLogo" />
 
-        <div className="navLinks">
-          <a href="#">Home</a>
-          <a href="#about">About</a>
-          <a href="#work">Work</a>
-          <a href="#services">Services</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#contact">Contact</a>
+        <div className="navPill">
+          <button className="menuToggle" onClick={() => setMenuOpen(!menuOpen)}>
+            <span>Menu</span>
+            <span className="hamburger">☰</span>
+          </button>
+
+          <div className={menuOpen ? "mobileMenu active" : "mobileMenu"}>
+            <a href="#about">ABOUT</a>
+            <a href="#work">WORK</a>
+            <a href="#services">SERVICE</a>
+            <a href="#pricing">PRICING</a>
+            <a href="#benefits">BENEFITS</a>
+            <a href="#contact">REACH OUT</a>
+
+            <a href="#contact" className="mobileLogin">
+              LOGIN <span>➜</span>
+            </a>
+          </div>
+
+          <div className="desktopLinks">
+            <a href="#about">ABOUT</a>
+            <a href="#work">WORK</a>
+            <a href="#services">SERVICE</a>
+            <a href="#pricing">PRICING</a>
+            <a href="#benefits">BENEFITS</a>
+            <a href="#contact">REACH OUT</a>
+          </div>
         </div>
 
-        <button className="navBtn">Book a Call</button>
+        <a href="#contact" className="loginBtn">
+          LOGIN <span>➜</span>
+        </a>
       </nav>
-
       <section className="hero">
         <h1>
           WE DEVELOP,
@@ -56,11 +76,28 @@ export default function App() {
 
       <section className="trusted">
         <p>TRUSTED BY</p>
-        <div>
-          <span>Upwork</span>
-          <span>fiverr.</span>
-          <span>Calendly</span>
-          <span>Freelancer</span>
+
+        <div className="logoMarquee">
+          <div className="logoTrack">
+            {[
+              "LinkedIn",
+              "Behance",
+              "Dribbble",
+              "Instagram",
+              "fiverr.",
+              "Upwork",
+              "99d",
+              "LinkedIn",
+              "Behance",
+              "Dribbble",
+              "Instagram",
+              "fiverr.",
+              "Upwork",
+              "99d",
+            ].map((logo, index) => (
+              <span key={index}>{logo}</span>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -100,12 +137,36 @@ export default function App() {
         <h3>SELECTED WORK</h3>
 
         <div className="workGrid">
-          {["Project 1", "Project 2", "Project 3", "Project 4"].map((item) => (
-            <div className="workCard" key={item}>
-              {item}
+          {[
+            {
+              title: "Portfolio Website",
+              type: "React / Frontend",
+              image: "/project1.png",
+            },
+            {
+              title: "UI Dashboard",
+              type: "UI/UX Design",
+              image: "/project2.png",
+            },
+            {
+              title: "Landing Page",
+              type: "Web Design",
+              image: "/project3.png",
+            },
+            {
+              title: "Mobile App UI",
+              type: "Figma Design",
+              image: "/project4.png",
+            },
+          ].map((project) => (
+            <div className="workCard" key={project.title}>
+              <img src={project.image} alt={project.title} />
+              <div className="workInfo">
+                <p>{project.type}</p>
+                <h3>{project.title}</h3>
+              </div>
             </div>
           ))}
-        </div>
       </section>
 
       <section className="services" id="services">
