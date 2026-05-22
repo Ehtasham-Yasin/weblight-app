@@ -192,21 +192,50 @@ export default function App() {
       </section>
 
       <section className="testimonials">
-        <h2>WHAT OUR CLIENTS LOVE ABOUT US</h2>
+        <img
+          src="/logo-dark.png"
+          alt="Weblight logo"
+          className="testimonialLogo"
+        />
+        <h2>WHY OUR CLIENTS CHERISH US</h2>
 
-        <div className="cards">
-          {["Prisha Janki", "Sara", "Lola Duke"].map((name) => (
-            <div className="card" key={name}>
-              <h4>{name}</h4>
-              <p>
-                Great work, clean design, fast delivery and professional
-                communication.
-              </p>
+        <p className="testimonialSub">
+          EXPLORE THE STORIES THAT FUEL OUR PASSION, TOLD BY THOSE WHO INSPIRE OUR
+          GREATEST WORK.
+        </p>
+
+        <div className="testimonialGrid">
+          {[
+            {
+              name: "Danielle Tschudi",
+              role: "Founder & CEO @Outshifter",
+              text: "Weblight is that rare find in the design world, a name that should stand alone. They exceeded my expectations with professionalism, thoughtful responses, and punctual delivery.",
+            },
+            {
+              name: "Flores, Juanita",
+              role: "HR Director at Logics",
+              text: "Weblight has been a game-changer for our brand. They provide a unique mix of creativity, fast delivery, and crystal clear communication.",
+            },
+            {
+              name: "Salwa",
+              role: "Head of Product at Zentry",
+              text: "Working with the Weblight team has been a transformative experience. They quickly turned our initial ideas into compelling designs.",
+            },
+          ].map((item) => (
+            <div className="testimonialCard" key={item.name}>
+              <div className="clientTop">
+                <div className="clientAvatar"></div>
+                <div>
+                  <h4>{item.name}</h4>
+                  <p>{item.role}</p>
+                </div>
+              </div>
+
+              <p className="clientText">{item.text}</p>
             </div>
           ))}
         </div>
       </section>
-
       <section className="pricing" id="pricing">
         <p className="tag">PRICING</p>
         <h2>MEMBER BENEFITS PLANS</h2>
