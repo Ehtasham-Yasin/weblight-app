@@ -236,75 +236,226 @@ export default function App() {
           ))}
         </div>
       </section>
-      <section className="pricing" id="pricing">
-        <p className="tag">PRICING</p>
+      <section
+        className="pricing" id="pricing">
+        <p className="pricingTag">PRICING</p>
+
         <h2>MEMBER BENEFITS PLANS</h2>
 
+        <p className="pricingSub">
+          AFFORDABLE, CUSTOMIZED DESIGN SOLUTIONS THAT ELEVATE YOUR BRAND AND FIT YOUR BUDGET.
+        </p>
+        <div className="pricingLine" style={{ "--percent": "20%" }}>
+          <input
+            type="range"
+            min="0"
+            max="500"
+            defaultValue="100"
+            className="userSlider"
+            onInput={(e) => {
+              const value = e.target.value;
+              const percent = `${(value / 500) * 100}%`;
+
+              e.currentTarget.parentElement.style.setProperty("--percent", percent);
+
+              document.getElementById("userCount").innerText = `${value} users`;
+            }}
+          />
+
+          <span id="userCount">100 users</span>
+        </div>
         <div className="priceGrid">
           {[
-            ["Standard", "$99"],
-            ["Pro", "$299"],
-            ["Project Based", "$499"],
-          ].map(([name, price]) => (
-            <div className="priceCard" key={name}>
-              <h4>{name}</h4>
-              <h3>from {price}</h3>
-              <button>Select Plan</button>
+            {
+              name: "Standard",
+              price: "$199",
+              note: "Cancel any time",
+              button: "Subscribe Now",
+              features: [
+                "One request at a time",
+                "One senior designer",
+                "Unlimited Revision",
+                "Average 2-3 days delivery",
+                "Unlimited design requests",
+                "Managed via Slack",
+                "Logo design",
+                "Web design",
+                "Branding",
+              ],
+            },
+            {
+              name: "Pro",
+              price: "$399",
+              note: "Pause or Cancel any time",
+              button: "Subscribe Now",
+              features: [
+                "Two request at a time",
+                "Two senior designer",
+                "Unlimited Revision",
+                "Average 2-7 days delivery",
+                "Unlimited design requests",
+                "Managed via Slack",
+                "Logo design",
+                "Framer development",
+                "Branding",
+                "Animation",
+                "3D Graphics",
+              ],
+            },
+            {
+              name: "Project Based",
+              price: "$699",
+              note: "50% Advance, 50% on Final",
+              button: "Request Now",
+              features: [
+                "Customized scope per project",
+                "Specialized team",
+                "Unlimited Revision",
+                "Average 2-9 days delivery",
+                "Tailored to specific needs",
+                "Managed via Slack",
+                "Logo design",
+                "Framer / Webflow development",
+                "Branding",
+                "Animation",
+                "3D Graphics",
+              ],
+            },
+          ].map((plan) => (
+            <div className="priceCard" key={plan.name}>
+              <h4>{plan.name}</h4>
+              <h3>
+                from <span>{plan.price}</span>
+                <small>/ month</small>
+              </h3>
+              <p>{plan.note}</p>
+
+              <button>{plan.button} →</button>
+
               <ul>
-                <li>Custom design</li>
-                <li>Responsive layout</li>
-                <li>Quick delivery</li>
-                <li>Support included</li>
+                {plan.features.map((feature) => (
+                  <li key={feature}>● {feature}</li>
+                ))}
               </ul>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="benefits">
-        <p className="tag">BENEFITS</p>
+      <section className="benefits" id="benefits">
+        <p className="benefitsTag">BENEFITS</p>
+
         <h2>MEMBER BENEFITS</h2>
+
+        <p className="benefitsSub">
+          EXPERIENCE LIMITLESS DESIGN POSSIBILITIES WITH WEB LIGHT. OUR MEMBERSHIP
+          GUARANTEES EXCLUSIVE CREATIVITY AND PERSONALIZED SUPPORT, EVERY STEP OF THE WAY.
+        </p>
 
         <div className="benefitGrid">
           {[
-            "Specialist-led Design",
-            "Quick Delivery",
-            "Endless Edits",
-            "Agile & Extendable",
-            "Stable Monthly Charge",
-            "No Agreements",
+            {
+              icon: "✎",
+              title: "SPECIALIST-LED DESIGN",
+              text: "IMPRESSIVE THOUGHTS VISUALIZED CREATIVELY BY OUR DESIGN PROFESSIONALS",
+            },
+            {
+              icon: "✓",
+              title: "QUICK DELIVERY",
+              text: "INCREDIBLE DESIGNS CRAFTED FOR YOU, DELIVERED IN JUST A FEW DAYS",
+            },
+            {
+              icon: "↻",
+              title: "ENDLESS EDITS",
+              text: "MODIFY, ADJUST, AND REFINE — LIMITLESS REVISIONS UNTIL IT'S RIGHT",
+            },
+            {
+              icon: "⚙",
+              title: "AGILE & EXTENDABLE",
+              text: "UPGRADE, DOWNGRADE, OR STOP ANYTIME — YOU’RE ALWAYS IN CONTROL",
+            },
+            {
+              icon: "⌯",
+              title: "STABLE MONTHLY CHARGE",
+              text: "SAME PRICE EVERY MONTH — NO SURPRISES, NO HIDDEN FEES",
+            },
+            {
+              icon: "▮",
+              title: "NO AGREEMENTS, NO TROUBLE",
+              text: "STUNNING DESIGNS, NO FINE PRINT OR CONTRACTS",
+            },
           ].map((b) => (
-            <div className="benefit" key={b}>
-              <div className="circle">✓</div>
-              <h4>{b}</h4>
-              <p>Flexible service made for growing brands.</p>
+            <div className="benefit" key={b.title}>
+              <div className="benefitIcon">{b.icon}</div>
+              <h4>{b.title}</h4>
+              <p>{b.text}</p>
             </div>
           ))}
         </div>
       </section>
-
       <section className="contact" id="contact">
-        <div>
+        <div className="contactInfo">
           <h3>Contact Information</h3>
+
           <p>Say something to start a live project.</p>
-          <p>📧 hello@weblight.com</p>
-          <p>📍 Innsbruck, Austria</p>
+
+          <a href="mailto:ehtasham.yasin.dev@gmail.com">
+            📧 ehtasham.yasin.dev@gmail.com
+          </a>
+
+          <span>📍 Innsbruck, Austria</span>
         </div>
 
-        <form>
+        <form className="contactForm">
           <input placeholder="First Name" />
           <input placeholder="Last Name" />
           <input placeholder="Email" />
           <input placeholder="Phone Number" />
           <textarea placeholder="Message"></textarea>
-          <button>Send Message</button>
+          <button type="submit">Send Message</button>
         </form>
       </section>
+      <div className="footerTop">
+        <a
+          href="https://www.linkedin.com/in/ehtasham-yasin/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span>in</span>
+          LinkedIn
+          <b>→</b>
+        </a>
 
-      <footer>
-        <h2>WEBLIGHT</h2>
-        <p>We develop, you shine.</p>
-      </footer>
+        <a
+          href="https://github.com/Ehtasham-Yasin"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span>⌘</span>
+          GitHub
+          <b>→</b>
+        </a>
+
+        <a
+          href="https://dribbble.com/ehtasham-yasin"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span>◌</span>
+          Dribbble
+          <b>→</b>
+        </a>
+
+        <a
+          href="https://www.behance.net/shani2malik24"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span>Bē</span>
+          Behance
+          <b>→</b>
+        </a>
+      </div>
     </main>
   );
 }
