@@ -274,11 +274,84 @@ button {
   min-height: 180px;
 }
 
-.services,
-.pricing {
-  background: #0b3f32;
-  padding: 55px;
+.services {
+  background: #d8c7bc;
+  color: #052d24;
+  padding: 70px 70px 80px;
+  border-radius: 46px;
   text-align: center;
+}
+
+.services .tag {
+  display: inline-block;
+  border: 2px solid #052d24;
+  border-radius: 999px;
+  padding: 12px 38px;
+  font-size: 20px;
+  font-weight: 900;
+  margin: 0 0 36px;
+}
+
+.services h2 {
+  max-width: 1000px;
+  margin: 0 auto 55px;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.2;
+  color: #052d24;
+}
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 46px 56px;
+}
+
+.serviceCard {
+  text-align: left;
+}
+
+.serviceCard img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 18px;
+  background: #06392e;
+}
+
+.serviceCard h3 {
+  font-size: 24px;
+  margin: 0 0 20px;
+  color: #052d24;
+}
+
+.serviceItems {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 18px;
+}
+
+.serviceItems span {
+  font-size: 10px;
+  font-weight: 900;
+  color: #052d24;
+  text-transform: uppercase;
+  line-height: 1.35;
+}
+
+@media (max-width: 900px) {
+  .services {
+    padding: 45px 28px;
+  }
+
+  .serviceGrid {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .serviceCard img {
+    height: 240px;
+  }
 }
 
 .testimonials {
@@ -492,13 +565,13 @@ button {
 }
 
 .priceCard h3 {
-  font-size: 28px;
+  font-size: 22px;
   margin: 0 0 20px;
-  font-weight: 800;
+  font-weight: 500;
 }
 
 .priceCard h3 span {
-  font-size: 58px;
+  font-size: 40px;
   font-weight: 400;
 }
 
@@ -764,6 +837,51 @@ button {
   color: #d9ff81;
   font-size: 28px;
   font-weight: 400;
+}
+
+/* FAQ */
+.faq {
+  width: min(100% - 32px, 1200px);
+  margin: 90px auto;
+}
+
+.faqItem {
+  background: #8feaf2;
+  color: #052d24;
+  border-radius: 28px;
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+
+.faqItem summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 30px 36px;
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faqItem summary::-webkit-details-marker {
+  display: none;
+}
+
+.faqItem summary span {
+  font-size: 30px;
+  transition: 0.25s ease;
+}
+
+.faqItem[open] summary span {
+  transform: rotate(45deg);
+}
+
+.faqItem p {
+  padding: 0 36px 30px;
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
 }
 
 /* BOTTOM AREA */

@@ -172,20 +172,106 @@ export default function App() {
 
       <section className="services" id="services">
         <p className="tag">SERVICES</p>
-        <h2>DESIGNING DIGITAL EXPERIENCES THAT INSPIRE AND ENGAGE</h2>
 
-        <div className="cards">
+        <h2>BUILDING DIGITAL EXPERIENCES THAT GROW BRANDS</h2>
+
+        <div className="serviceGrid">
           {[
-            "UI/UX Design",
-            "Branding & Identity",
-            "Web Design & Development",
-            "Interaction Design",
-            "Custom Integration",
-            "Mobile App Design",
-          ].map((s) => (
-            <div className="card" key={s}>
-              <h4>{s}</h4>
-              <p>Modern, responsive and user-friendly digital solution.</p>
+            {
+              title: "FULL STACK DEVELOPMENT",
+              image: "/service1.jpg",
+              items: [
+                "React.js",
+                "Node.js",
+                "MongoDB",
+                "REST APIs",
+                "Authentication",
+                "Database Integration",
+                "Responsive Apps",
+                "Deployment",
+              ],
+            },
+            {
+              title: "FRONT-END DEVELOPMENT",
+              image: "/service2.jpg",
+              items: [
+                "React Development",
+                "Responsive Layouts",
+                "Modern UI",
+                "Animations",
+                "Landing Pages",
+                "Performance Optimization",
+                "Interactive Design",
+                "Clean Code",
+              ],
+            },
+            {
+              title: "UI/UX DESIGN",
+              image: "/service3.jpg",
+              items: [
+                "Wireframing",
+                "Figma Design",
+                "User Experience",
+                "Responsive Design",
+                "Prototyping",
+                "Design Systems",
+                "Mobile UI",
+                "Usability Testing",
+              ],
+            },
+            {
+              title: "BRANDING & IDENTITY",
+              image: "/service4.jpg",
+              items: [
+                "Logo Design",
+                "Visual Identity",
+                "Brand Strategy",
+                "Style Guides",
+                "Typography",
+                "Color Systems",
+                "Creative Direction",
+                "Social Assets",
+              ],
+            },
+            {
+              title: "WEB APPLICATIONS",
+              image: "/service5.jpg",
+              items: [
+                "Dashboards",
+                "Admin Panels",
+                "SaaS Platforms",
+                "Authentication",
+                "API Integration",
+                "CMS Systems",
+                "Real-time Features",
+                "Scalable Architecture",
+              ],
+            },
+            {
+              title: "MODERN WEB EXPERIENCES",
+              image: "/service6.jpg",
+              items: [
+                "SEO Friendly",
+                "Fast Performance",
+                "Framer Motion",
+                "Interactive UI",
+                "Mobile First",
+                "Modern Interfaces",
+                "Creative Development",
+                "Conversion Focused",
+              ],
+            },
+          ].map((service) => (
+            <div className="serviceCard" key={service.title}>
+              <img src={service.image} alt={service.title} />
+
+              <h3>{service.title}</h3>
+
+              <div className="serviceItems">
+                {service.items.map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
+              </div>
             </div>
           ))}
         </div>
@@ -267,58 +353,58 @@ export default function App() {
         <div className="priceGrid">
           {[
             {
-              name: "Standard",
+              name: "Starter",
               price: "$199",
-              note: "Cancel any time",
+              note: "Best for startups & personal brands",
               button: "Subscribe Now",
               features: [
-                "One request at a time",
-                "One senior designer",
-                "Unlimited Revision",
-                "Average 2-3 days delivery",
-                "Unlimited design requests",
-                "Managed via Slack",
-                "Logo design",
-                "Web design",
-                "Branding",
+                "One project at a time",
+                "Responsive frontend development",
+                "Landing page design",
+                "React / Next.js development",
+                "Basic API integration",
+                "Unlimited revisions",
+                "2–4 days delivery",
+                "Slack communication",
+                "Deployment support",
               ],
             },
             {
-              name: "Pro",
+              name: "Professional",
               price: "$399",
-              note: "Pause or Cancel any time",
+              note: "Perfect for growing businesses",
               button: "Subscribe Now",
               features: [
-                "Two request at a time",
-                "Two senior designer",
-                "Unlimited Revision",
-                "Average 2-7 days delivery",
-                "Unlimited design requests",
-                "Managed via Slack",
-                "Logo design",
-                "Framer development",
-                "Branding",
-                "Animation",
-                "3D Graphics",
+                "Two active projects at a time",
+                "Full-stack web development",
+                "Frontend + backend architecture",
+                "REST API integration",
+                "Authentication systems",
+                "Admin dashboard development",
+                "Database integration",
+                "Unlimited revisions",
+                "Priority Slack support",
+                "3–7 days delivery",
+                "Deployment & hosting support",
               ],
             },
             {
-              name: "Project Based",
+              name: "Enterprise",
               price: "$699",
-              note: "50% Advance, 50% on Final",
+              note: "Custom solutions for complex products",
               button: "Request Now",
               features: [
-                "Customized scope per project",
-                "Specialized team",
-                "Unlimited Revision",
-                "Average 2-9 days delivery",
-                "Tailored to specific needs",
-                "Managed via Slack",
-                "Logo design",
-                "Framer / Webflow development",
-                "Branding",
-                "Animation",
-                "3D Graphics",
+                "Custom SaaS platform development",
+                "Scalable full-stack architecture",
+                "Admin panels & CMS systems",
+                "Real-time application features",
+                "Advanced API integrations",
+                "Cloud deployment & DevOps",
+                "Team collaboration support",
+                "Performance optimization",
+                "UI/UX system design",
+                "Long-term maintenance",
+                "Dedicated project support",
               ],
             },
           ].map((plan) => (
@@ -393,6 +479,42 @@ export default function App() {
           ))}
         </div>
       </section>
+      <section className="faq" id="faq">
+        {[
+          {
+            q: "Why choose Weblight?",
+            a: "Weblight creates clean, modern and responsive digital experiences that help brands look professional and grow online.",
+          },
+          {
+            q: "In which programs do you design?",
+            a: "I design in Figma, Framer, Webflow, and also build websites using React, HTML, CSS and JavaScript.",
+          },
+          {
+            q: "How do I manage my subscription?",
+            a: "You can pause, cancel, upgrade or downgrade your plan anytime based on your design needs.",
+          },
+          {
+            q: "What if I have only one design request?",
+            a: "You can use a project based plan for one-time design or development work.",
+          },
+          {
+            q: "How fast is the delivery?",
+            a: "Most designs are delivered within 2–7 days depending on the project size.",
+          },
+          {
+            q: "Is my data secure in Weblight?",
+            a: "Yes, your project files, brand details and personal information are handled privately and securely.",
+          },
+        ].map((item) => (
+          <details className="faqItem" key={item.q}>
+            <summary>
+              {item.q}
+              <span>+</span>
+            </summary>
+            <p>{item.a}</p>
+          </details>
+        ))}
+      </section>
       <section className="contact" id="contact">
         <div className="contactInfo">
           <h3>Contact Information</h3>
@@ -406,13 +528,49 @@ export default function App() {
           <span>📍 Innsbruck, Austria</span>
         </div>
 
-        <form className="contactForm">
-          <input placeholder="First Name" />
-          <input placeholder="Last Name" />
-          <input placeholder="Email" />
-          <input placeholder="Phone Number" />
-          <textarea placeholder="Message"></textarea>
-          <button type="submit">Send Message</button>
+        <form
+          className="contactForm"
+          action="https://api.web3forms.com/submit"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="access_key"
+            value="87c80b05-232c-4d38-bea4-8d5958b1c82b"
+          />
+
+          <input
+            name="firstName"
+            placeholder="First Name"
+            required
+          />
+
+          <input
+            name="lastName"
+            placeholder="Last Name"
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
+
+          <input
+            name="phone"
+            placeholder="Phone Number"
+          />
+
+          <textarea
+            name="message"
+            placeholder="Message"
+            required
+          ></textarea>
+
+          <button type="submit">
+            Send Message
+          </button>
         </form>
       </section>
       <div className="footerTop">
