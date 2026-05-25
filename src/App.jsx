@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 export default function App() {
+  const [activeNav, setActiveNav] = useState("home");
+  const sections = [
+    "home",
+    "about",
+    "work",
+    "services",
+    "pricing",
+    "benefits",
+    "contact",
+  ];
   const [menuOpen, setMenuOpen] = React.useState(false);
   const cursorRef = React.useRef(null);
 
@@ -24,43 +34,69 @@ export default function App() {
       <div className="custom-cursor" ref={cursorRef}>
         ✦
       </div>
-      <nav className="navbar">
-        <img src="/logo.png" alt="Weblight Logo" className="brandLogo" />
+      <header className="headerWrap">
+        {/* LOGO */}
+        <img
+          src="/logo.png"
+          alt="Weblight Logo"
+          className="brandLogo"
+        />
 
-        <div className="navPill">
-          <button className="menuToggle" onClick={() => setMenuOpen(!menuOpen)}>
-            <span>Menu</span>
-            <span className="hamburger">☰</span>
-          </button>
+        {/* NAV */}
+        <nav className="navbar">
+          <div className="navPill">
+            <button
+              className="menuToggle"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              <span>Menu</span>
+              <span className="hamburger">☰</span>
+            </button>
 
-          <div className={menuOpen ? "mobileMenu active" : "mobileMenu"}>
-            <a href="#about">ABOUT</a>
-            <a href="#work">WORK</a>
-            <a href="#services">SERVICE</a>
-            <a href="#pricing">PRICING</a>
-            <a href="#benefits">BENEFITS</a>
-            <a href="#contact">REACH OUT</a>
+            {/* MOBILE MENU */}
+            <div className={menuOpen ? "mobileMenu active" : "mobileMenu"}>
+              <a href="#home">HOME</a>
+              <a href="#about">ABOUT</a>
+              <a href="#work">WORK</a>
+              <a href="#services">SERVICE</a>
+              <a href="#pricing">PRICING</a>
+              <a href="#benefits">BENEFITS</a>
+              <a href="#contact">REACH OUT</a>
 
-            <a href="#contact" className="mobileLogin">
-              LOGIN <span>➜</span>
-            </a>
+              <a href="#contact" className="mobileLogin">
+                LOGIN <span>➜</span>
+              </a>
+            </div>
+
+            {/* DESKTOP */}
+            <div className="desktopLinks">
+              {["home", "about", "work", "services", "pricing", "benefits", "contact"].map(
+                (item) => (
+                  <a
+                    key={item}
+                    href={`#${item}`}
+                    className={activeNav === item ? "activeNav" : ""}
+                    onClick={() => setActiveNav(item)}
+                  >
+                    {item === "services"
+                      ? "SERVICE"
+                      : item === "contact"
+                        ? "REACH OUT"
+                        : item.toUpperCase()}
+                  </a>
+                )
+              )}
+            </div>
           </div>
+        </nav>
 
-          <div className="desktopLinks">
-            <a href="#about">ABOUT</a>
-            <a href="#work">WORK</a>
-            <a href="#services">SERVICE</a>
-            <a href="#pricing">PRICING</a>
-            <a href="#benefits">BENEFITS</a>
-            <a href="#contact">REACH OUT</a>
-          </div>
-        </div>
-
+        {/* LOGIN */}
         <a href="#contact" className="loginBtn">
           LOGIN <span>➜</span>
         </a>
-      </nav>
-      <section className="hero">
+      </header>
+
+      <section className="hero" id="home">
         <h1>
           WE DEVELOP,
           <br />
@@ -102,21 +138,15 @@ export default function App() {
       </section>
 
       <section className="about" id="about">
-        <div>
+        <div className="aboutText">
           <h3>ABOUT ME</h3>
 
+          <p className="aboutHello">HI I AM EHTASHAM YASIN</p>
+
           <p>
-            I am Ehtasham Yasin, a passionate Development Engineer, UI/UX
-            Designer, and Front-End Developer focused on creating modern digital
-            experiences that combine clean design with powerful functionality. I
-            specialize in building responsive websites, landing pages, and
-            user-friendly interfaces that help businesses grow online and
-            establish a strong digital presence.
-            <br />
-            <br />
-            With expertise in front-end technologies, responsive design systems,
-            and modern UI/UX principles, I create solutions that are visually
-            engaging, performance optimized, and tailored to client goals.
+            I’m a Full-Stack & Front-End Developer with a strong eye for UI/UX design.
+            I build modern websites, web applications, and responsive digital
+            experiences that combine clean visuals with powerful functionality.
           </p>
 
           <a
@@ -124,7 +154,7 @@ export default function App() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button>View CV</button>
+            <button>VIEW DETAIL</button>
           </a>
         </div>
 
